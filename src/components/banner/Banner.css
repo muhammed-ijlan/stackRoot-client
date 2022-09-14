@@ -1,0 +1,54 @@
+.banner {
+  height: 558px;
+  object-fit: contain;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.bannerContents {
+  width: 420px;
+  margin-left: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.buttons {
+  padding-top: 15px;
+  margin: 0;
+}
+.buttons button {
+  color: white;
+  background-color: #222;
+  border: none;
+  margin-right: 10px;
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.bannerTitle {
+  font-weight: 700;
+  font-size: 60px;
+  margin-left: 100px;
+}
+@media only screen and (max-width: 1024px) {
+  .bannerTitle {
+    font-weight: 700;
+    font-size: 50px;
+    margin-left: 20px;
+  }
+  .bannerContents {
+    width: 220px;
+    margin-left: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

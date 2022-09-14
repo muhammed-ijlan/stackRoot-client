@@ -7,11 +7,13 @@ import "./Footer.css"
 
 function Footer() {
     return (
+
         <div className='footer'>
+            <hr />
             <div className='footer-wrapper'>
 
                 <div className='footer-left'>
-                    <img src='https://www.stackroots.in/img/Icon.png' alt='icon' />
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png' alt='icon' />
                     <div className='footer-para'>
                         <p>
                             Our eminent clientele is spread across the world. Stackroots is your perfect partner to handle your key operations with a passion to deliver prolific results without compromising on quality at any stage.
@@ -38,7 +40,7 @@ function Footer() {
             </div>
 
             <div className='footer-copyright'>
-                <p>Copyright © 2022. STACKROOTS</p>
+                <p>Copyright © 2022. Netflix</p>
             </div>
 
         </div>

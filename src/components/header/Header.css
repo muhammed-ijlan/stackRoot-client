@@ -1,8 +1,8 @@
 :root {
   --mainColor: #fbf8ff;
-  --mainColorLight: #5767aa;
-  --secondaryColor: #202c69;
-  --textColor: #eee;
+  --mainColorLight: #202020;
+  --secondaryColor: #890505;
+  --textColor: white;
 }
 
 header {
@@ -11,15 +11,14 @@ header {
   justify-content: space-between;
   height: 80px;
   padding: 0 2rem;
-  background-color: var(--mainColor);
-  color: black;
+  color: white;
 }
 header img {
-  width: 250px;
+  width: 150px;
 }
 nav a {
   margin: 0 1rem;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -33,7 +32,7 @@ header .nav-btn {
   background: transparent;
   border: none;
   outline: none;
-  color: black;
+  color: var(--textColor);
   visibility: hidden;
   opacity: 0;
   font-size: 1.8rem;
@@ -45,7 +44,11 @@ nav {
   align-items: center;
 }
 nav .navAuthBtn {
-  margin-left: 30px;
+  display: flex;
+  align-items: flex-start;
+}
+.avatar {
+  width: 50px;
 }
 nav .navAuthBtn button {
   background-color: var(--secondaryColor);
@@ -67,6 +70,7 @@ nav .navAuthBtn button {
 
   header nav {
     position: fixed;
+    background-color: #202020;
     top: 0;
     left: 0;
     height: 100%;
@@ -76,8 +80,8 @@ nav .navAuthBtn button {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    background-color: var(--mainColor);
     transform: translateY(-100vh);
+    z-index: 1;
   }
 
   header .responsive_nav {

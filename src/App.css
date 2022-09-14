@@ -1,5 +1,7 @@
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
-  background-color: #fbf8ff;
+}
+.app {
+  background-color: #1c1c1c;
 }
