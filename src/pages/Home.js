@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Banner from '../components/banner/Banner'
 import Row from "../components/row/Row"
 import requests from "../requests"
+import { useSelector } from "react-redux"
 
 
 function Home() {
+    const { currentUser } = useSelector((state) => state.user)
+    useEffect(() => {
+        console.log("currentUser is", currentUser);
+
+    }, [])
+
     return (
         <>
             <Banner />

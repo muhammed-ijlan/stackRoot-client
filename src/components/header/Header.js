@@ -1,14 +1,26 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css"
+import { useSelector, useDispatch } from "react-redux"
+import { logout } from "../../redux/userSlice";
 
 function Header() {
+    const dispatch = useDispatch()
     const navRef = useRef();
+    const navigate = useNavigate()
+
+    const { currentUser } = useSelector((state) => state.user)
 
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
     };
+
+    const handleLogout = () => {
+        dispatch(logout())
+        navigate("/signin")
+
+    }
 
     return (
         <header>
@@ -18,18 +30,32 @@ function Header() {
                 <Link to='/' style={{ textDecoration: "none" }}>
                     <p>Home</p>
                 </Link>
-                <p >Movies</p>
-                <p>Series</p>
+                {currentUser ?
 
-                <div className="navAuthBtn">
-                    <Link to="signin">
-                        <button>SignIn</button>
-                    </Link>
-                    <Link to="register">
-                        <button >SignUp</button>
-                    </Link>
+                    <React.Fragment>
+                        <p >Movies</p>
+                        <p>Series</p>
 
-                </div>
+                        <div className="navAuthBtn">
+                            <button onClick={() => handleLogout()}>Logout</button>
+                        </div>
+                    </React.Fragment>
+
+                    :
+                    <React.Fragment>
+                        <div className="navAuthBtn">
+                            <Link to="signin">
+                                <button>SignIn</button>
+                            </Link>
+                            <Link to="register">
+                                <button >SignUp</button>
+                            </Link>
+                        </div>
+
+                    </React.Fragment>
+
+                }
+
                 <button
                     className="nav-btn nav-close-btn"
                     onClick={showNavbar}>
