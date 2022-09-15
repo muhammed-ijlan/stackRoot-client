@@ -14,7 +14,6 @@ function Signin() {
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
 
-
     const handleLogin = async () => {
         setIsLoading(true)
         dispatch(loginStart())
@@ -42,7 +41,7 @@ function Signin() {
                     <input type="password" required maxLength="20" minLength="8" placeholder='*****' name='password' onChange={(e) => setPasswordInput(e.target.value)}></input>
                     <p style={{ color: "red" }}>{message}</p>
                     {isLoading && <button>Loading...</button>}
-                    <button onClick={() => handleLogin()}>SignIn</button>
+                    {!isLoading && <button onClick={() => handleLogin()}>SignIn</button>}
                 </div>
             </div>
         </div>

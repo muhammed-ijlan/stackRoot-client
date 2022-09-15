@@ -7,7 +7,6 @@ import "./Footer.css"
 
 function Footer() {
     return (
-
         <div className='footer'>
             <hr />
             <div className='footer-wrapper'>
@@ -16,7 +15,7 @@ function Footer() {
                     <img src='https://icon-library.com/images/movie-icon-app/movie-icon-app-25.jpg' alt='icon' />
                     <div className='footer-para'>
                         <p>
-                            Our eminent clientele is spread across the world. Stackroots is your perfect partner to handle your key operations with a passion to deliver prolific results without compromising on quality at any stage.
+                            Our eminent clientele is spread across the world. Movieman is your perfect partner to handle your key operations with a passion to deliver prolific results without compromising on quality at any stage.
                         </p>
                     </div>
                 </div>
