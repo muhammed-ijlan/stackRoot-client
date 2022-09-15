@@ -18,8 +18,14 @@ function Signin() {
         setIsLoading(true)
         dispatch(loginStart())
         try {
-            const res = await axios.post("http://localhost:5000/api/login", { email: emailInput, password: passwordInput })
-            dispatch(loginSuccess(res.data))
+
+            const res = await axios.post("http://localhost:5000/api/login", { email: emailInput, password: passwordInput },
+                { withCredentials: true })
+            localStorage.setItem("user-info", JSON.stringify(res.data));
+
+            dispatch(loginSuccess(JSON.parse(localStorage.getItem("user-info"))))
+
+
             setMessage(res)
             setIsLoading(false)
             navigate("/")

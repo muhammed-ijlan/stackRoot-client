@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Header.css"
 import { useSelector, useDispatch } from "react-redux"
 import { logout } from "../../redux/userSlice";
+import Cookies from "js-cookie";
 
 function Header() {
     const dispatch = useDispatch()
@@ -17,6 +18,8 @@ function Header() {
     };
 
     const handleLogout = () => {
+        Cookies.remove("access_token")
+        localStorage.clear();
         dispatch(logout())
         navigate("/signin")
 
