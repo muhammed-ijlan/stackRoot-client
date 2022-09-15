@@ -22,7 +22,6 @@ function Header() {
         localStorage.clear();
         dispatch(logout())
         navigate("/signin")
-
     }
 
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import "./Signin.css"
 import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice'
@@ -9,30 +9,25 @@ import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice'
 function Signin() {
     const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
-    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
+    const { loading } = useSelector((state) => state.user)
 
     const handleLogin = async () => {
-        setIsLoading(true)
         dispatch(loginStart())
         try {
-
             const res = await axios.post("http://localhost:5000/api/login", { email: emailInput, password: passwordInput },
                 { withCredentials: true })
             localStorage.setItem("user-info", JSON.stringify(res.data));
 
             dispatch(loginSuccess(JSON.parse(localStorage.getItem("user-info"))))
 
-
             setMessage(res)
-            setIsLoading(false)
             navigate("/")
         } catch (e) {
             setMessage(e.response.data.message);
             dispatch(loginFailure())
-            setIsLoading(false)
 
         }
     }
@@ -46,8 +41,8 @@ function Signin() {
                     <label>password :</label>
                     <input type="password" required maxLength="20" minLength="8" placeholder='*****' name='password' onChange={(e) => setPasswordInput(e.target.value)}></input>
                     <p style={{ color: "red" }}>{message}</p>
-                    {isLoading && <button>Loading...</button>}
-                    {!isLoading && <button onClick={() => handleLogin()}>SignIn</button>}
+                    {loading && <button>Loading...</button>}
+                    {!loading && <button onClick={() => handleLogin()}>SignIn</button>}
                 </div>
             </div>
         </div>
