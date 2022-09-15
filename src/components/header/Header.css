@@ -14,7 +14,11 @@ header {
   color: white;
 }
 header img {
-  width: 150px;
+  margin-left: 100px;
+  width: 50px;
+}
+header h3 {
+  margin-right: 500px;
 }
 nav a {
   margin: 0 1rem;
@@ -47,9 +51,6 @@ nav .navAuthBtn {
   display: flex;
   align-items: flex-start;
 }
-.avatar {
-  width: 50px;
-}
 nav .navAuthBtn button {
   background-color: var(--secondaryColor);
   border-radius: 5px;
@@ -58,8 +59,11 @@ nav .navAuthBtn button {
   outline: none;
   color: #fff;
   border: 1px solid black;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   cursor: pointer;
+}
+nav .navAuthBtn button:hover {
+  background-color: #511717;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -96,5 +100,11 @@ nav .navAuthBtn button {
 
   nav a {
     font-size: 1.5rem;
+  }
+
+  header h3 {
+    position: absolute;
+    left: 20px;
+    margin-right: 0;
   }
 }
