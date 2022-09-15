@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import "./Signin.css"
 import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice'
 
 function Signin() {
-    const [user, setUser] = useState([])
     const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const currentUser = useSelector((state) => state.user.currentUser)
     const [message, setMessage] = useState("");
 
 
@@ -39,9 +37,9 @@ function Signin() {
                 <h1>Sign In</h1>
                 <div className='form'>
                     <label>Email :</label>
-                    <input type="text" placeholder='abc@xyz.com' name='email' onChange={(e) => setEmailInput(e.target.value)} />
+                    <input type="email" required maxLength="20" minLength="8" placeholder='abc@xyz.com' name='email' onChange={(e) => setEmailInput(e.target.value)} />
                     <label>password :</label>
-                    <input type="password" placeholder='*****' name='password' onChange={(e) => setPasswordInput(e.target.value)}></input>
+                    <input type="password" required maxLength="20" minLength="8" placeholder='*****' name='password' onChange={(e) => setPasswordInput(e.target.value)}></input>
                     <p style={{ color: "red" }}>{message}</p>
                     {isLoading && <button>Loading...</button>}
                     <button onClick={() => handleLogin()}>SignIn</button>

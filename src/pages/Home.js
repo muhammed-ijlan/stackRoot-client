@@ -9,8 +9,7 @@ function Home() {
     const { currentUser } = useSelector((state) => state.user)
     useEffect(() => {
         console.log("currentUser is", currentUser);
-
-    }, [])
+    }, [currentUser])
 
     return (
         <>
