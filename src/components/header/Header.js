@@ -15,16 +15,18 @@ function Header() {
             <img className="logo" src="https://icon-library.com/images/movie-icon-app/movie-icon-app-25.jpg" alt="logo" />
             <h3>Movie Man</h3>
             <nav ref={navRef}>
-                <a href="/#">Home</a>
-                <a href="/#">Movies</a>
-                <a href="/#">Series</a>
+                <Link to='/' style={{ textDecoration: "none" }}>
+                    <p>Home</p>
+                </Link>
+                <p >Movies</p>
+                <p>Series</p>
 
                 <div className="navAuthBtn">
                     <Link to="signin">
                         <button>SignIn</button>
                     </Link>
                     <Link to="register">
-                        <button className="">SignUp</button>
+                        <button >SignUp</button>
                     </Link>
 
                 </div>

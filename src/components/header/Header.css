@@ -20,13 +20,13 @@ header img {
 header h3 {
   margin-right: 500px;
 }
-nav a {
+nav p {
   margin: 0 1rem;
   color: white;
   text-decoration: none;
 }
 
-nav a:hover {
+nav p:hover {
   color: var(--secondaryColor);
 }
 
@@ -59,7 +59,7 @@ nav .navAuthBtn button {
   outline: none;
   color: #fff;
   border: 1px solid black;
-  /* margin-right: 15px; */
+  margin-right: 15px;
   cursor: pointer;
 }
 nav .navAuthBtn button:hover {
